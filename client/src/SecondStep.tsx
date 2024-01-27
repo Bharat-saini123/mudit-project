@@ -1,12 +1,9 @@
 import { styled } from "styled-components";
 import { Box, Typography } from "@mui/material";
-import { useState } from "react";
 import Country from "./Country";
-import Steper from "./Stepper";
-import {Button} from "@mui/material";
+import { Button } from "@mui/material";
 import Steper2 from "./Steper2";
 import { useNavigate } from "react-router-dom";
-
 
 const Container = styled.div`
   width: 100vw;
@@ -23,8 +20,6 @@ const Label = styled.label`
 
 const Input = styled.input``;
 
-const Select = styled.select``;
-const Option = styled.option``;
 const Item = styled.div`
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
@@ -50,10 +45,10 @@ const Item = styled.div`
 const Div = styled.div``;
 
 const SecondStep = () => {
-const navigate=useNavigate();
-const handleSubmit=()=>{
-navigate("/datList")
-}
+  const navigate = useNavigate();
+  const handleSubmit = () => {
+    navigate("/datList");
+  };
 
   return (
     <Container>
@@ -63,7 +58,7 @@ navigate("/datList")
       <Div className="main-box">
         <Item>
           <Label htmlFor="address">
-           Address
+            Address
             <Box className="inputs">
               <Input
                 className="input"
@@ -73,10 +68,9 @@ navigate("/datList")
               ></Input>
             </Box>
           </Label>
-         
 
           <Label htmlFor="state">
-          State
+            State
             <Box className="inputs">
               <Input
                 className="input"
@@ -88,7 +82,7 @@ navigate("/datList")
           </Label>
 
           <Label htmlFor="city">
-           City
+            City
             <Box className="inputs">
               <Input
                 className="input"
@@ -98,13 +92,9 @@ navigate("/datList")
               ></Input>
             </Box>
           </Label>
-         
-         
-          
-         
-           
-            <Country/>
-            <Label htmlFor="pincode">
+
+          <Country />
+          <Label htmlFor="pincode">
             Pincode
             <Box className="inputs">
               <Input
@@ -116,12 +106,17 @@ navigate("/datList")
             </Box>
           </Label>
         </Item>
-        
       </Div>
       <Div>
-        <Button variant="contained" sx={{fontSize:"1.5rem",width:"25rem"}} onClick={handleSubmit}>Submit</Button>
+        <Button
+          variant="contained"
+          sx={{ fontSize: "1.5rem", width: "25rem" }}
+          onClick={handleSubmit}
+        >
+          Submit
+        </Button>
       </Div>
-      <Steper2/>
+      <Steper2 />
     </Container>
   );
 };

@@ -3,7 +3,7 @@ import { Box, Typography } from "@mui/material";
 import { useState } from "react";
 import Country from "./Country";
 import Steper from "./Stepper";
-import {Button} from "@mui/material";
+import { Button } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 
 const Container = styled.div`
@@ -48,16 +48,16 @@ const Item = styled.div`
 const Div = styled.div``;
 
 const Home = () => {
-    const navigate=useNavigate();
+  const navigate = useNavigate();
   const [govt, setGovt] = useState("");
   const handleInput = (e: any) => {
     e.preventDefault();
     setGovt(e.target.value);
   };
 
-  const handleSubmit=()=>{
-navigate("/secondStep")
-  }
+  const handleSubmit = () => {
+    navigate("/secondStep");
+  };
   return (
     <Container>
       <Div>
@@ -76,7 +76,6 @@ navigate("/secondStep")
               ></Input>
             </Box>
           </Label>
-         
 
           <Label htmlFor="mobile">
             Mobile
@@ -133,70 +132,74 @@ navigate("/secondStep")
               </Option>
             </Select>
           </Box>
-          
-            <Box sx={{ display: "flex", flexDirection: "column" }}>
-              <Label htmlFor="govtId">Govt issued Id</Label>
 
-              <Select
-                className="inputs"
-                id="govtId"
-                name="govtId"
-                style={{
-                  border: "1px solid #34343457",
-                  borderRadius: "0.5rem",
-                }}
-                onClick={handleInput}
+          <Box sx={{ display: "flex", flexDirection: "column" }}>
+            <Label htmlFor="govtId">Govt issued Id</Label>
+
+            <Select
+              className="inputs"
+              id="govtId"
+              name="govtId"
+              style={{
+                border: "1px solid #34343457",
+                borderRadius: "0.5rem",
+              }}
+              onClick={handleInput}
+            >
+              <Option
+                value={"adhaar"}
+                className="input"
+                style={{ fontSize: "1.2rem" }}
               >
-                <Option
-                  value={"adhaar"}
+                Adhaar
+              </Option>
+              <Option
+                value={"pan"}
+                className="input"
+                style={{ fontSize: "1.2rem" }}
+              >
+                Pan
+              </Option>
+            </Select>
+          </Box>
+          {govt === "adhaar" ? (
+            <Box sx={{ marginTop: "2.2rem" }}>
+              <Box className="inputs">
+                <Input
                   className="input"
-                  style={{ fontSize: "1.2rem" }}
-                >
-                  Adhaar
-                </Option>
-                <Option
-                  value={"pan"}
-                  className="input"
-                  style={{ fontSize: "1.2rem" }}
-                >
-                  Pan
-                </Option>
-              </Select>
+                  type="number"
+                  name="govtId"
+                  id="govtId"
+                  placeholder="Enter Adhaar Number"
+                ></Input>
+              </Box>
             </Box>
-            {govt === "adhaar" ? (
-              <Box sx={{ marginTop: "2.2rem" }}>
-                <Box className="inputs">
-                  <Input
-                    className="input"
-                    type="number"
-                    name="govtId"
-                    id="govtId"
-                    placeholder="Enter Adhaar Number"
-                  ></Input>
-                </Box>
+          ) : (
+            <Box sx={{ marginTop: "2.2rem" }}>
+              <Box className="inputs">
+                <Input
+                  className="input"
+                  type="text"
+                  name="govtId"
+                  id="govtId"
+                  placeholder="PAN"
+                ></Input>
               </Box>
-            ) : (
-              <Box sx={{ marginTop: "2.2rem" }}>
-                <Box className="inputs">
-                  <Input
-                    className="input"
-                    type="text"
-                    name="govtId"
-                    id="govtId"
-                    placeholder="PAN"
-                  ></Input>
-                </Box>
-              </Box>
-            )}
-       
+            </Box>
+          )}
         </Item>
       </Div>
       <Div>
-        <Button variant="contained" sx={{fontSize:"1.5rem",width:"25rem"}} onClick={handleSubmit}>Submit</Button>
+        <Button
+          variant="contained"
+          sx={{ fontSize: "1.5rem", width: "25rem" }}
+          onClick={handleSubmit}
+        >
+          Submit
+        </Button>
       </Div>
-  
-        <Steper/>
-  
+
+      <Steper />
     </Container>
   );
 };
